@@ -5,9 +5,13 @@
     }
     
     public function index(){
+      if(isLoggedIn()){
+        redirect('posts');
+      }
+
       $data = [
         'title' => 'SharePosts',
-        'description' => 'Simple social network built on the TraversyMVC PHP framework'
+        'description' => 'Сайт для добавление постов, регистрации пользователей.'
       ];
      
       $this->view('pages/index', $data);
@@ -15,8 +19,8 @@
 
     public function about(){
       $data = [
-        'title' => 'About Us',
-        'description' => 'App to share posts with other users'
+        'title' => 'О нас',
+        'description' => 'Чтение и добавление постов.'
       ];
 
       $this->view('pages/about', $data);
